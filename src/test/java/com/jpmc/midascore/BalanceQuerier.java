@@ -1,6 +1,6 @@
 package com.jpmc.midascore;
 
-import com.jpmc.midascore.foundation.Balance;
+import com.jpmc.midascore.foundation.Incentive;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -13,8 +13,8 @@ public class BalanceQuerier {
         this.restTemplate = builder.build();
     }
 
-    public Balance query(Long userId) {
+    public Incentive query(Long userId) {
         String url = "http://localhost:33400/balance?userId=" + userId;
-        return restTemplate.getForObject(url, Balance.class);
+        return restTemplate.getForObject(url, Incentive.class);
     }
 }

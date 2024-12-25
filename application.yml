@@ -1,0 +1,19 @@
+spring:
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+    consumer:
+      group-id: transaction-listener
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: com.jpmc.midascore.foundation.Transaction
+
+server:
+  port: 33400
+
+general:
+  kafka-topic: transaction
+  incentive-api-url: "http://localhost:8080/incentive"
